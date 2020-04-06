@@ -1,0 +1,20 @@
+<div class="container login-container">
+  <h3>Users</h3>
+  <div class="card" *ngFor="let user of users;">
+    <div class="card-body">
+      <h5 class="card-title">{{user.name}}
+        <button *ngIf="checkFollowing(user)" (click)="unFollow(user)" type="button" class="btn btn-primary btn-sm">Following</button>
+        <button *ngIf="!checkFollowing(user)" (click)="follow(user)" type="button" class="btn btn-primary btn-sm">Follow</button>
+      </h5>
+      <h6>Created at <span class="badge badge-secondary">{{user.created_at}}</span></h6>
+      Posts <span class="badge badge-primary">{{user.posts ? user.posts.length : 0 }}</span>
+      Followers <span class="badge badge-primary">{{user.follower_relationships ? user.follower_relationships.length : 0 }}</span>
+      Following <span class="badge badge-primary">{{user.following_relationships ? user.following_relationships.length : 0 }}</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
